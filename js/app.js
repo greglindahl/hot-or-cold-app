@@ -1,8 +1,9 @@
 // Hot and Cold Game //
 
 function newGame() {
-	var randomNum = Math.floor(Math.random() * 100);
+	randomNum = Math.floor(Math.random() * 100);
 	console.log("The random number is " + randomNum);
+	$("#count").text("0");
 }
 
 function gameLogic(guess, randomNum) {
@@ -18,22 +19,17 @@ function gameLogic(guess, randomNum) {
 	}
 }
 
-// var randomNum = Math.floor(Math.random() * 100);
 var guesses = 0;
 var correctGuess = false;
+var randomNum;
 
 $(document).ready(function(){
 
-// variable to generate random number.
-	// var randomNum = Math.floor(Math.random() * 100);
-	
-
-	// console.log("The random number is " + randomNum)
+	randomNum = Math.floor(Math.random() * 100);
 	
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
     	$(".overlay").fadeIn(1000);
-
   	});
 
   	/*--- Hide information modal box ---*/
@@ -47,8 +43,6 @@ $(document).ready(function(){
   		var input = $("#userGuess").val();
   		gameLogic(input, randomNum);
   		$("#count").text(guesses);
-  		// $( "#userGuess" ).add( "<p>Enter your Guess</p>" )
-  		// .addClass( "text" );
   	});
 
 // variable to hold user's current guess
